@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import './App.scss';
+import Products from './pages/products/products.component';
+
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  HttpLink,
+  from
+} from '@apollo/client'
+import { onError } from '@apollo/client/link/error'
+
+const errorLink = onError(({ graphqlErrors, networkError }) => {
+  if (graphqlErrors) {
+    // eslint-disable-next-line
+    graphqlErrors.map(({ message }) => {
+      alert(`Graphql error ${message}`)
+    })
+  }
+})
+
+
+const link = from([
+  errorLink,
+  new HttpLink({
+    uri: "https://pangaea-interviews.now.sh/api/graphql"
+  })
+])
+
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <div>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={Products} />
+          </Switch>
+        </BrowserRouter>
+      </div>
+    </ApolloProvider>
   );
 }
 

@@ -1,0 +1,128 @@
+.checkout {
+    .nav-arrow__div {
+        border-radius: 50%;
+        border: 1px solid rgb(198, 204, 199);
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .cart-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+
+        p {
+            color: #696969;
+            font-size: 15px;
+        }
+    }
+
+    .cart-currency__div ,
+    .cart-body{
+        padding: 20px;
+    }
+
+    .cart-currency__div {
+        max-width: 150px;
+    }
+
+    .empty-message {
+        font-size: 18px;
+        justify-content: center;
+        display: flex;
+    }
+
+    .cart-parent__div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+
+    .subtotal-div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cart-body {
+        min-height: 400px;
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    .cart-footer {
+        border-top: 1px solid #d0d0d0;
+        box-shadow: 0 -4px 12px #00000026;
+        z-index: 9999;
+        // position: fixed;
+        width: 100%;
+        bottom: 0;
+        background: #fff;
+        padding: 20px;
+    }
+
+    .checkout-overlay {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #00000087;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+
+        transition: opacity 0.4s ease-in-out 0.1s, -webkit-transform 0.4s cubic-bezier(0.28, 0.47, 0.29, 0.86);
+        transition: transform 0.4s cubic-bezier(0.28, 0.47, 0.29, 0.86), opacity 0.4s ease-in-out 0.1s;
+        transition: transform 0.4s cubic-bezier(0.28, 0.47, 0.29, 0.86), opacity 0.4s ease-in-out 0.1s,
+            -webkit-transform 0.4s cubic-bezier(0.28, 0.47, 0.29, 0.86);
+    }
+
+    .sidenav {
+        height: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #f2f2ef;
+        overflow-x: hidden;
+        transition: 0.5s;
+        // padding: 20px;
+
+        transition: opacity 0.4s ease-in-out 0.1s, -webkit-transform 0.4s cubic-bezier(0.28, 0.47, 0.29, 0.86);
+        transition: transform 0.4s cubic-bezier(0.28, 0.47, 0.29, 0.86), opacity 0.4s ease-in-out 0.1s;
+        transition: transform 0.4s cubic-bezier(0.28, 0.47, 0.29, 0.86), opacity 0.4s ease-in-out 0.1s,
+            -webkit-transform 0.4s cubic-bezier(0.28, 0.47, 0.29, 0.86);
+    }
+
+    .sidenav-open {
+        width: 550px;
+    }
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+}
